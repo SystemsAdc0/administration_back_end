@@ -1,4 +1,7 @@
-import { createPool } from "mysql2";
+import { createPool } from "mysql2/promise";
+import { config } from "dotenv";
+
+config();
 
 const db = createPool({
   host: process.env.DB_HOST,
@@ -6,6 +9,8 @@ const db = createPool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   port: process.env.DB_PORT,
+  supportBigNumbers: true,
+  bigNumberStrings: false, // ✅ Evita que los números sean strings
 });
 
 export default db;
