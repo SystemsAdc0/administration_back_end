@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 app.use(limiter);
 app.use("/api", login);
-app.use("/api", system);
+app.use("/api/system", system);
 app.use("/api/rh", rhRoute);
 
 export default app;
