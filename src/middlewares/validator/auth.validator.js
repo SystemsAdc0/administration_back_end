@@ -663,3 +663,224 @@ export const validateChangeEmployeeContract = [
 
   validateFields,
 ];
+
+/* -------------- VALIDACIONES PARA EL ROL DE SISTEMAS ---------------*/
+
+export const validateCreateComputer = [
+  body("brand")
+    .notEmpty()
+    .withMessage("La marca es obligatoria")
+    .isString()
+    .withMessage("La marca debe de ser texto"),
+  body("model")
+    .notEmpty()
+    .withMessage("El modelo es obligatorio")
+    .isString()
+    .withMessage("El modelo debe de ser texto"),
+  body("type_id")
+    .notEmpty()
+    .withMessage("El tipo de ID es obligatorio")
+    .isIn(["Numero Serial", "Windows ID"])
+    .withMessage("El tipo de ID tiene que ser uno valido"),
+  body("value_id")
+    .notEmpty()
+    .withMessage("El valor del id es obligatorio")
+    .isString()
+    .withMessage("El valor del ID debe de ser texto"),
+  body("type")
+    .notEmpty()
+    .withMessage("El tipo de computadora es obligatorio")
+    .isIn(["Escritorio", "Laptop"])
+    .withMessage("El tipo de computadora debe de ser uno valido"),
+  body("computer_functional_state_id")
+    .notEmpty()
+    .withMessage("El estado funcional es obligatorio")
+    .isInt()
+    .withMessage("El estado funcional debe de ser un valor numerico entero"),
+  body("computer_conditional_state_id")
+    .notEmpty()
+    .withMessage("El estado condicional es obligatorio")
+    .isInt()
+    .withMessage("El estado condicional debe de ser un valor numerico entero"),
+  body("employee_id")
+    .optional({ values: "falsy" })
+    .isInt()
+    .withMessage("El id del empleado debe de ser un valor numerico"),
+
+  validateFields,
+];
+
+export const validateChangeComputer = [
+  body("computer_id")
+    .notEmpty()
+    .withMessage("El id de la computadora es obligatorio")
+    .isInt()
+    .withMessage(
+      "El id de la computadora debe de ser un valor numerico entero"
+    ),
+  body("computer_functional_state_id")
+    .notEmpty()
+    .withMessage("El estado funcional es obligatorio")
+    .isInt()
+    .withMessage("El estado funcional debe de ser un valor numerico entero"),
+  body("computer_conditional_state_id")
+    .notEmpty()
+    .withMessage("El estado condicional es obligatorio")
+    .isInt()
+    .withMessage("El estado condicional debe de ser un valor numerico entero"),
+  body("employee_id")
+    .optional({ values: "falsy" })
+    .isInt()
+    .withMessage("El id del empleado debe de ser un valor numerico"),
+  body("description")
+    .optional({ values: "falsy" })
+    .isString()
+    .withMessage("La descripción debe de ser texto"),
+
+  validateFields,
+];
+
+export const validateCreateScreen = [
+  body("brand")
+    .notEmpty()
+    .withMessage("La marca es obligatoria")
+    .isString()
+    .withMessage("La marca debe de ser texto"),
+  body("model")
+    .notEmpty()
+    .withMessage("El modelo es obligatorio")
+    .isString()
+    .withMessage("El modelo debe de ser texto"),
+  body("serial_number")
+    .notEmpty()
+    .withMessage("El numero serial es obligatotio")
+    .isString()
+    .withMessage("El numero serial debe de ser texto"),
+  body("status")
+    .notEmpty()
+    .withMessage("El status es obligatorio")
+    .isIn(["Activo", "Baja", "En espera"])
+    .withMessage("El status debe de ser uno valido"),
+  body("computer_id")
+    .optional({ values: "falsy" })
+    .isInt()
+    .withMessage("El id de la computadora debe der un valor numerico entero"),
+
+  validateFields,
+];
+
+export const validateChangeScreen = [
+  body("screen_id")
+    .notEmpty()
+    .withMessage("El id del monitor es obligatorio")
+    .isInt()
+    .withMessage("El id del monitor debe de ser un valor numerico entero"),
+  body("brand")
+    .notEmpty()
+    .withMessage("La marca es obligatoria")
+    .isString()
+    .withMessage("La marca debe de ser texto"),
+  body("model")
+    .notEmpty()
+    .withMessage("El modelo es obligatorio")
+    .isString()
+    .withMessage("El modelo debe de ser texto"),
+  body("serial_number")
+    .notEmpty()
+    .withMessage("El numero serial es obligatotio")
+    .isString()
+    .withMessage("El numero serial debe de ser texto"),
+  body("status")
+    .notEmpty()
+    .withMessage("El status es obligatorio")
+    .isIn(["Activo", "Baja", "En espera"])
+    .withMessage("El status debe de ser uno valido"),
+  body("computer_id")
+    .optional({ values: "falsy" })
+    .isInt()
+    .withMessage("El id de la computadora debe der un valor numerico entero"),
+
+  validateFields,
+];
+
+export const validateCreateAntenna = [
+  body("kit_number")
+    .notEmpty()
+    .withMessage("El numero de kit es obligatorio")
+    .isString()
+    .withMessage("El numero de kit debe de ser texto"),
+  body("starlink_id")
+    .notEmpty()
+    .withMessage("El id de star link es obligatorio")
+    .isString()
+    .withMessage("El id de star link debe de ser texto"),
+  body("router_id")
+    .notEmpty()
+    .withMessage("El id del router es obligatorio")
+    .isString()
+    .withMessage("El id del router debe de ser texto"),
+  body("status")
+    .notEmpty()
+    .withMessage("El status es obligatorio")
+    .isIn(["Activo", "Baja", "En espera"])
+    .withMessage("El status debe de ser uno valido"),
+  body("employee_id")
+    .optional({ values: "falsy" })
+    .isInt()
+    .withMessage("El id del empleado debe de ser un valor numerico entero"),
+
+  validateFields,
+];
+
+export const validateChangeAntenna = [
+  body("antenna_id")
+    .notEmpty()
+    .withMessage("El id de la antena es obligatorio")
+    .isInt()
+    .withMessage("El id de la antena debe de se un valor numerico entero"),
+  body("description")
+    .optional({ values: "falsy" })
+    .isString()
+    .withMessage("La descripción debe de ser texto"),
+  body("status")
+    .notEmpty()
+    .withMessage("El status es obligatorio")
+    .isIn(["Activo", "Baja", "En espera"])
+    .withMessage("El status debe de ser uno valido"),
+  body("employee_id")
+    .optional({ values: "falsy" })
+    .isInt()
+    .withMessage("El id del empleado debe de ser un valor numerico entero"),
+];
+
+export const validateCreatePrinter = [
+  body("brand")
+    .notEmpty()
+    .withMessage("La marca es obligatoria")
+    .isString()
+    .withMessage("La marca debe de ser texto"),
+  body("model")
+    .notEmpty()
+    .withMessage("El modelo es obligatorio")
+    .isString()
+    .withMessage("El modelo debe de ser texto"),
+  body("year")
+    .optional({ values: "falsy" })
+    .isInt()
+    .withMessage("El año debe de ser un valor numerico entero"),
+  body("serial_number")
+    .notEmpty()
+    .withMessage("El numero serial es obligatorio")
+    .isString()
+    .withMessage("El numero serial debe de ser texto"),
+  body("status")
+    .optional({ values: "falsy" })
+    .isIn(["Activo", "Baja", "En espera"])
+    .withMessage("El status tiene que ser uno valido"),
+  body("employee_id")
+    .optional({ values: "falsy" })
+    .isInt()
+    .withMessage("El id del empleado debe de ser un valor numerico entero"),
+
+  validateFields,
+];

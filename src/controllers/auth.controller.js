@@ -2,7 +2,7 @@ import { generateJwt } from "../utils/generateToken.js";
 
 const dbDemo = [
   { name: "jorge", password: 123, role: "admin", email: "jorge@gmail.com" },
-  { id: 1, name: "adan", password: 123, role: "RH", email: "adan@gmail.com", status: 1 },
+  { id: 1, name: "adan", password: 123, role: "System", email: "adan@gmail.com", status: 1 },
 ];
 
 export const login = async (req, res) => {
