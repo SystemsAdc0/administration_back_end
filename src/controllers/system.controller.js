@@ -101,7 +101,7 @@ export const listAntennas = async (req, res) => {
 
 export const changeAntenna = async (req, res) => {
   try {
-    const antenna = await System.changeAntenna(req.body, req.user.name);
+    const antenna = await System.updateAntenna(req.body, req.user.name);
     return res.status(200).json(antenna);
   } catch ({ message, statusCode }) {
     res.status(statusCode).json({ msg: message, code: statusCode })
@@ -125,11 +125,66 @@ export const createPrinter = async (req, res) => {
     res.status(statusCode).json({ msg: message, code: statusCode })
   }
 }
+
 export const listPrinters = async (req, res) => {
   try {
     const printer = await System.getPrinters(req.query);
     return res.status(200).json(printer);
   } catch ({ message, statusCode }) {
     res.status(statusCode).json({ msg: message, code: statusCode })
+  }
+}
+
+export const changePrinter = async (req, res) => {
+  try {
+    const printer = await System.updatePrinter(req.body, req.user.name);
+    return res.status(200).json(printer);
+  } catch ({ message, statusCode }) {
+    res.status(statusCode).json({ msg: message, code: statusCode })
+  }
+}
+
+export const listPrinterHistory = async (req, res) => {
+  try {
+    const printer = await System.getPrinterHistory(req.query);
+    return res.status(200).json(printer);
+  } catch ({ message, statusCode }) {
+    res.status(statusCode).json({ msg: message, code: statusCode })
+  }
+}
+
+export const createPhone = async (req, res) => {
+  try {
+    const phone = await System.insertPhone(req.body, req.user.name);
+    return res.status(200).json(phone);
+  } catch ({ message, statusCode }) {
+    res.status(statusCode).json({ msg: message, code: statusCode })
+  }
+}
+
+export const listPhones = async (req, res) => {
+  try {
+    const phones = await System.getPhones(req.query);
+    return res.status(200).json(phones);
+  } catch ({ message, statusCode }) {
+    res.status(statusCode).json({ msg: message, code: statusCode })
+  }
+}
+
+export const changePhone = async (req, res) => {
+  try {
+    const phone = await System.updatePhone(req.body, req.user.name);
+    return res.status(200).json(phone);
+  } catch ({ message, statusCode }) {
+    res.statusCode(statusCode).json({ msg: message, code: statusCode })
+  }
+}
+
+export const listPhoneHistory = async (req, res) => {
+  try {
+    const phone_history = await System.getPhoneHistory(req.query);
+    return res.status(200).json(phone_history);
+  } catch ({ message, statusCode }) {
+    res.statusCode(statusCode).json({ msg: message, code: statusCode })
   }
 }

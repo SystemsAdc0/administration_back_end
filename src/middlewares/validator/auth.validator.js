@@ -715,9 +715,7 @@ export const validateChangeComputer = [
     .notEmpty()
     .withMessage("El id de la computadora es obligatorio")
     .isInt()
-    .withMessage(
-      "El id de la computadora debe de ser un valor numerico entero"
-    ),
+    .withMessage("El id de la computadora debe de ser un valor numerico entero"),
   body("computer_functional_state_id")
     .notEmpty()
     .withMessage("El estado funcional es obligatorio")
@@ -775,21 +773,6 @@ export const validateChangeScreen = [
     .withMessage("El id del monitor es obligatorio")
     .isInt()
     .withMessage("El id del monitor debe de ser un valor numerico entero"),
-  body("brand")
-    .notEmpty()
-    .withMessage("La marca es obligatoria")
-    .isString()
-    .withMessage("La marca debe de ser texto"),
-  body("model")
-    .notEmpty()
-    .withMessage("El modelo es obligatorio")
-    .isString()
-    .withMessage("El modelo debe de ser texto"),
-  body("serial_number")
-    .notEmpty()
-    .withMessage("El numero serial es obligatotio")
-    .isString()
-    .withMessage("El numero serial debe de ser texto"),
   body("status")
     .notEmpty()
     .withMessage("El status es obligatorio")
@@ -864,10 +847,6 @@ export const validateCreatePrinter = [
     .withMessage("El modelo es obligatorio")
     .isString()
     .withMessage("El modelo debe de ser texto"),
-  body("year")
-    .optional({ values: "falsy" })
-    .isInt()
-    .withMessage("El año debe de ser un valor numerico entero"),
   body("serial_number")
     .notEmpty()
     .withMessage("El numero serial es obligatorio")
@@ -881,6 +860,91 @@ export const validateCreatePrinter = [
     .optional({ values: "falsy" })
     .isInt()
     .withMessage("El id del empleado debe de ser un valor numerico entero"),
+
+  validateFields,
+];
+
+export const validateChangePrinter = [
+  body("printer_id")
+    .notEmpty()
+    .withMessage("El id de la impresora es obligatorio")
+    .isInt()
+    .withMessage("El id de la impresora debe de ser un valor numerico entero"),
+  body("status")
+    .notEmpty()
+    .withMessage("El status es obligatorio")
+    .isIn(["Activo", "Baja", "En espera"])
+    .withMessage("El status tiene que ser uno valido"),
+  body("employee_id")
+    .optional({ values: "falsy" })
+    .isInt()
+    .withMessage("El id del empleado debe de ser un valor numerico entero"),
+  body("description")
+    .optional({ values: "falsy" })
+    .isString()
+    .withMessage("La descripción debe de ser texto"),
+
+  validateFields,
+];
+
+export const validateCreatePhone = [
+  body("brand")
+    .notEmpty()
+    .withMessage("La marca es obligatoria")
+    .isString()
+    .withMessage("La marca debe de ser texto"),
+  body("model")
+    .notEmpty()
+    .withMessage("El modelo es obligatorio")
+    .isString()
+    .withMessage("El modelo debe de ser texto"),
+  body("imei")
+    .notEmpty()
+    .withMessage("El imei es obligatorio")
+    .isInt()
+    .withMessage("El imei tiene que ser un valo numerico entero"),
+  body("phone_number")
+    .notEmpty()
+    .withMessage("El numero del telefono es obligatorio")
+    .isInt()
+    .withMessage("El numero de telefono debe de ser un valor numerico entero"),
+  body("status")
+    .notEmpty()
+    .withMessage("El statu es oblogatorio")
+    .isIn(["Activo", "Baja", "En espera"])
+    .withMessage("El status debe de ser uno valido"),
+  body("employee_id")
+    .optional({ values: "falsy" })
+    .isInt()
+    .withMessage("El id del empleado debe de ser un valor numerico entero"),
+
+  validateFields,
+];
+
+export const validateChangePhone = [
+  body("phone_id")
+    .notEmpty()
+    .withMessage("El id del telefono es obligatorio")
+    .isInt()
+    .withMessage("El id del telefono debe de ser un valor numerico entero"),
+  body("employee_id")
+    .optional({ values: "falsy" })
+    .isInt()
+    .withMessage("El id del empleado debe de ser un valor numerico entero"),
+  body("description")
+    .optional({ values: "falsy" })
+    .isString()
+    .withMessage("La descripción debe de ser texto"),
+  body("phone_number")
+    .notEmpty()
+    .withMessage("El numero del telefono es obligatorio")
+    .isInt()
+    .withMessage("El numero de telefono debe de ser un valor numerico entero"),
+  body("status")
+    .notEmpty()
+    .withMessage("El status es obligatorio")
+    .isIn(["Activo", "Baja", "En espera"])
+    .withMessage("El status tiene que ser uno valido"),
 
   validateFields,
 ];
